@@ -1,0 +1,13 @@
+[Unit]
+Description=Servidor para Bot Telegram
+After=network.target
+
+[Service]
+ExecStart=/opt/telegram-bot/venv/bin/python /opt/telegram-bot/server.py -t <API KEY>
+Restart=always
+User=root
+StandardOutput=append:/var/log/telegram.log
+StandardError=append:/var/log/telegram-error.log
+
+[Install]
+WantedBy=multi-user.target
